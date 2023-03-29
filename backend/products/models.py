@@ -9,3 +9,10 @@ class Product(models.Model):
     # summary = models.TextField(blank=False, null=False)
     # featured = models.BooleanField(default=False)
 
+    @property
+    def sale_price(self):
+        return "%.2f" % (float(self.price) * 0.9)
+    
+    def get_discount(self):
+        return "%.2f" % (float(self.price) * 0.1)
+
